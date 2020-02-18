@@ -6,6 +6,7 @@
 #include "Slot.h"
 #include "bet.h"
 #include "Spin.h"
+#include "Label.h"
 
 class Level1Scene : public Scene
 {
@@ -30,6 +31,9 @@ private:
 	Bet* m_pBet;
 	Slot* m_pSlot;
 	Spin* m_pSpin;
+
+	Label* m_pMoneyLabel;
+	Label* m_pBetLabel;
 
 };
 

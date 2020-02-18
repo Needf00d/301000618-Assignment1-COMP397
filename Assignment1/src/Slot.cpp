@@ -43,4 +43,19 @@ void Slot::clean()
 
 }
 
+int Slot::getBet()
+{
+	return m_money;
+}
+
+int Slot::getMoney()
+{
+	return m_bet;
+}
+
+void Slot::placeABet(int bet)
+{
+	m_bet += bet;
+}
+
 

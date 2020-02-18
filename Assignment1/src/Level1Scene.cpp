@@ -16,6 +16,8 @@ void Level1Scene::draw()
 	m_pSlot->draw();
 	m_pBet->draw();
 	m_pSpin->draw();
+	m_pBetLabel->draw();
+	m_pMoneyLabel->draw();
 
 }
 
@@ -55,6 +57,11 @@ void Level1Scene::handleEvents()
 			case SDL_BUTTON_LEFT:
 				m_pSpin->setMouseButtonClicked(true);
 				m_pBet->setMouseButtonClicked(true);
+				if (m_pBet->getMouseOver())
+				{
+					m_pSlot->placeABet(10);
+					m_pBetLabel->setText("Bet: " + std::to_string(m_pSlot->getBet()));
+				}
 				break;
 			}
 
@@ -75,7 +82,10 @@ void Level1Scene::handleEvents()
 
 void Level1Scene::start()
 {
-\
+
+	SDL_Color blue = { 0, 0, 255, 255 };
+
+
 	// allocates memory on the heap for this game object
 	m_pSlot = new Slot();
 	m_pSlot->setParent(this);
@@ -90,6 +100,14 @@ void Level1Scene::start()
 	m_pBet->setParent(this);
 	addChild(m_pBet);
 	m_pBet->setMouseButtonClicked(false);
+
+	m_pMoneyLabel = new Label("Money: " + std::to_string(m_pSlot->getMoney()), "Consolas", 30, blue, glm::vec2(400.0f, 500.0f));
+	m_pMoneyLabel->setParent(this);
+	addChild(m_pMoneyLabel);
+
+	m_pBetLabel = new Label("Bet: " + std::to_string(m_pSlot->getBet()), "Consolas", 30, blue, glm::vec2(400.0f, 550.0f));
+	m_pBetLabel->setParent(this);
+	addChild(m_pBetLabel);
 }
 
 glm::vec2 Level1Scene::getMousePosition()
