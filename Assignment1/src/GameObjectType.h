@@ -20,7 +20,7 @@ enum GameObjectType {
 	SLOT,
 	BET,
 	SPIN,
-	FRUIT
+	SLOTIMAGE
 };
 
 #endif /* defined (__GAME_OBJECT_TYPE__)*/

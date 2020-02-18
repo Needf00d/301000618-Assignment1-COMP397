@@ -3,25 +3,23 @@
 /*
 Author:seoyoung
 */
-Slot::Slot(std::string imagePath, std::string buttonName, GameObjectType type, glm::vec2 position, bool isCentered) : m_name(buttonName), m_isCentered(isCentered), m_alpha(255)
+Slot::Slot()
 {
-	TheTextureManager::Instance()->load(imagePath,
-		m_name, TheGame::Instance()->getRenderer());
+	TheTextureManager::Instance()->load("../Assets/textures/slot.png", "slot",
+		TheGame::Instance()->getRenderer());
 
-	glm::vec2 size = TheTextureManager::Instance()->getTextureSize(m_name);
+	glm::vec2 size = TheTextureManager::Instance()->getTextureSize("slot");
 	setWidth(size.x);
 	setHeight(size.y);
-	setPosition(position);
-	setType(type);
+	setPosition(glm::vec2(55.0f, 150.0f));
+	setType(SLOT);
 
 
-	
 }
 	
-
-
 Slot::~Slot()
 {
+
 }
 
 void Slot::draw()
@@ -29,8 +27,7 @@ void Slot::draw()
 	int xComponent = getPosition().x;
 	int yComponent = getPosition().y;
 
-	TheTextureManager::Instance()->draw(m_name, xComponent, yComponent,
-		TheGame::Instance()->getRenderer(), 0, m_alpha, true);
+	TheTextureManager::Instance()->draw("slot", xComponent, yComponent, TheGame::Instance()->getRenderer(), 0, 255, false);
 
 }
 
@@ -45,12 +42,12 @@ void Slot::clean()
 
 int Slot::getBet()
 {
-	return m_money;
+	return m_bet;
 }
 
 int Slot::getMoney()
 {
-	return m_bet;
+	return m_money;
 }
 
 void Slot::placeABet(int bet)
@@ -58,4 +55,8 @@ void Slot::placeABet(int bet)
 	m_bet += bet;
 }
 
+std::string Slot::getMessage()
+{
+	return m_message;
+}
 

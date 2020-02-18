@@ -18,7 +18,7 @@ void Level1Scene::draw()
 	m_pSpin->draw();
 	m_pBetLabel->draw();
 	m_pMoneyLabel->draw();
-
+	m_pSlotlabel->draw();
 }
 
 void Level1Scene::update()
@@ -56,9 +56,14 @@ void Level1Scene::handleEvents()
 			{
 			case SDL_BUTTON_LEFT:
 				m_pSpin->setMouseButtonClicked(true);
+				if (m_pSpin->getMouseOver()) 
+				{
+
+				}
 				m_pBet->setMouseButtonClicked(true);
 				if (m_pBet->getMouseOver())
 				{
+
 					m_pSlot->placeABet(10);
 					m_pBetLabel->setText("Bet: " + std::to_string(m_pSlot->getBet()));
 				}
@@ -108,6 +113,11 @@ void Level1Scene::start()
 	m_pBetLabel = new Label("Bet: " + std::to_string(m_pSlot->getBet()), "Consolas", 30, blue, glm::vec2(400.0f, 550.0f));
 	m_pBetLabel->setParent(this);
 	addChild(m_pBetLabel);
+
+	m_pSlotlabel = new Label("Slot Machine!" , "Consolas", 80, blue, glm::vec2(400.0f, 100.0f));
+	m_pSlotlabel->setParent(this);
+	addChild(m_pSlotlabel);
+	
 }
 
 glm::vec2 Level1Scene::getMousePosition()

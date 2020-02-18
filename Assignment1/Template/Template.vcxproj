@@ -178,6 +178,7 @@
     <ClCompile Include="..\src\Scene.cpp" />
     <ClCompile Include="..\src\ship.cpp" />
     <ClCompile Include="..\src\Slot.cpp" />
+    <ClCompile Include="..\src\SlotImage.cpp" />
     <ClCompile Include="..\src\SoundManager.cpp" />
     <ClCompile Include="..\src\Spin.cpp" />
     <ClCompile Include="..\src\StartButton.cpp" />
@@ -215,6 +216,7 @@
     <ClInclude Include="..\src\ShapeType.h" />
     <ClInclude Include="..\src\ship.h" />
     <ClInclude Include="..\src\Slot.h" />
+    <ClInclude Include="..\src\Slotimage.h" />
     <ClInclude Include="..\src\SoundManager.h" />
     <ClInclude Include="..\src\Spin.h" />
     <ClInclude Include="..\src\StartButton.h" />
